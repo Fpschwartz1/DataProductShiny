@@ -22,7 +22,11 @@ shinyServer(
                  main="Projectile Trajectory",
                  xlab="range", ylab="height")
             lines(x,y,col="red")
-            #text(63, 140, paste("MSE = ", round(mse, 2)))
+            
+            points(x[input$nstep+1],y[input$nstep+1], col = "blue", pch = 16, cex = 1.5)
+            text(0.7*xmax, 0.98*ymax, paste("range = ", round(x[input$nstep+1], 2), "m"), col = "blue", pos = 4)
+            text(0.7*xmax, 0.90*ymax, paste("height = ", round(y[input$nstep+1], 2), "m"), col = "blue", pos = 4)
+            text(0.7*xmax, 0.83*ymax, paste("duration = ", round(t[input$nstep+1], 2), "s"), col = "blue", pos = 4)
         })
     }
 )
